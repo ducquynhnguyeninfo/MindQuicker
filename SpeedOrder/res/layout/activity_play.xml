@@ -1,0 +1,103 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res/vn.game.speedorder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".GameActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <vn.game.speedorder.NotificationButton
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
+        </vn.game.speedorder.NotificationButton>
+
+        <vn.game.speedorder.NotificationButton
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
+        </vn.game.speedorder.NotificationButton>
+
+        <vn.game.speedorder.NotificationButton
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" >
+        </vn.game.speedorder.NotificationButton>
+         
+    </LinearLayout>
+
+    <vn.game.speedorder.EndGameLayout
+        android:id="@+id/endGamePopup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="left"
+        android:layout_gravity="bottom"
+         >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff" >
+
+            <ImageButton
+                android:id="@+id/ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/your_score"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/scores_btn_selector" />
+
+            <ImageView
+                android:id="@+id/your_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/your_best"
+                android:layout_marginRight="50dp"
+                android:layout_toLeftOf="@+id/ranking"
+                android:src="@drawable/scores" />
+
+            <ImageView
+                android:id="@+id/your_best"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp"
+                android:layout_toRightOf="@+id/ranking"
+                android:src="@drawable/best" />
+
+            <ImageButton
+                android:id="@+id/replay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ranking"
+                android:layout_below="@+id/ranking"
+                android:layout_marginTop="42dp"
+                android:src="@drawable/replay" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageButton1"
+                android:layout_toRightOf="@+id/your_best"
+                android:background="@android:color/background_light"
+                android:drawableTop="@drawable/replay"
+                android:text="REPLAY" />
+        </RelativeLayout>
+    </vn.game.speedorder.EndGameLayout>
+
+</FrameLayout>

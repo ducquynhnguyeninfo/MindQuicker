@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkslatblue"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="124dp"
+                android:src="@drawable/banner_speed_order" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/play_btn_selector"
+            android:gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/scores_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@drawable/scores_btn_selector" />
+
+            <Button
+                android:id="@+id/rate_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rate_btn_selector" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- <com.google.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="6cec342a1bca4a6d"
+        ads:loadAdOnCreate="true" /> -->
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NotificationButtonStyleable">
+        <attr name="buttonText" format="string" localization="suggested" />
+        <attr name="texColor" format="color" />
+        <attr name="setImgSource" format="integer" localization="suggested"></attr>
+    </declare-styleable>
+
+</resources> 

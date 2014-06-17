@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <vn.game.speedorder.EndGameLayout
+        android:id="@+id/endGamePopup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff" >
+
+            <ImageButton
+                android:id="@+id/ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/your_score"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/scores_btn_selector" />
+
+            <ImageView
+                android:id="@+id/your_score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/your_best"
+                android:layout_marginRight="50dp"
+                android:layout_toLeftOf="@+id/ranking"
+                android:src="@drawable/scores" />
+
+            <ImageView
+                android:id="@+id/your_best"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="70dp"
+                android:layout_toRightOf="@+id/ranking"
+                android:src="@drawable/best" />
+
+            <ImageButton
+                android:id="@+id/replay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/ranking"
+                android:layout_below="@+id/ranking"
+                android:layout_marginTop="42dp"
+                android:src="@drawable/replay" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/imageButton1"
+                android:layout_toRightOf="@+id/your_best"
+                android:background="@android:color/background_light"
+                android:drawableTop="@drawable/replay"
+                android:text="REPLAY" />
+        </RelativeLayout>
+   </vn.game.speedorder.EndGameLayout>
+
+</FrameLayout>
