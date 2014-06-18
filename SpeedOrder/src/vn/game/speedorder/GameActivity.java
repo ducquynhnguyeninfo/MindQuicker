@@ -3,6 +3,10 @@ package vn.game.speedorder;
 import java.util.ArrayList;
 import java.util.List;
 
+import vn.game.speedorder.logic.ResultChecker;
+import vn.game.speedorder.logic.Timer;
+import vn.game.speedorder.utils._Log;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;

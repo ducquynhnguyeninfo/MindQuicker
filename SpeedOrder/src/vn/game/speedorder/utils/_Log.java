@@ -1,4 +1,4 @@
-package vn.game.speedorder;
+package vn.game.speedorder.utils;
 
 import android.util.Log;
 

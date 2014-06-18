@@ -1,6 +1,8 @@
-package vn.game.speedorder;
+package vn.game.speedorder.logic;
 
 import java.util.List;
+
+import vn.game.speedorder.utils._Log;
 
 public class ResultChecker {
 	List<Integer> output;

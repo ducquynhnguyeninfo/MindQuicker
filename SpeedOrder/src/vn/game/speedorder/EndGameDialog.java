@@ -1,5 +1,6 @@
 package vn.game.speedorder;
 
+import vn.game.speedorder.utils._Log;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;

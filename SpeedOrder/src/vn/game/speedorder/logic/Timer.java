@@ -1,4 +1,4 @@
-package vn.game.speedorder;
+package vn.game.speedorder.logic;
 
 import android.os.CountDownTimer;
 import android.os.Handler;
