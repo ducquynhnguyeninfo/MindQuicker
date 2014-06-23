@@ -50,7 +50,7 @@ public class EndGameDialog {
 			public void onClick(View v) {
 //				popup.startAnimation(animHide);
 				popup.setVisibility(View.GONE);
-				((GameActivity)activity).makeNewRoundGame();
+				((GameActivity)activity).makeNewCycle();
 			}
 		});
 	}

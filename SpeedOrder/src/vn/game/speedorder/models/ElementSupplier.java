@@ -4,49 +4,80 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import vn.game.speedorder.utils._Log;
-
-
-
+/**
+ * To supply a list of random value elements.
+ * 
+ * @author DUC QUYNH
+ * 
+ */
 public class ElementSupplier {
 	private static Random random = new Random();
 
-	public static List<Integer> elementSupplier(int numberOfElement, int limit) {
+	/**
+	 * Supplies a new random list with distinct elements.
+	 * 
+	 * @param numberOfElement
+	 * @param limit
+	 * @return New random list with distinct elements.
+	 */
+	public static List<Integer> supply(int numberOfElement, int limit) {
 		List<Integer> elements = new ArrayList<Integer>();
-		_Log.v("element.size() before add any element : ", elements.size() + "");
+		/*
+		 * At first, we make a random Integer as the first element of our list.
+		 */
 		elements.add(greateRandomElement(limit));
-		_Log.v("element đầu tiên = ", elements.get(0) + "");
+		/*
+		 * Then, looping a while loop until the list's size equals number of
+		 * elements we desired.
+		 */
 		while (elements.size() < numberOfElement) {
-			_Log.v("element.size() sau khi add item thứ : " + elements.size(),
-					elements.size() + "");
-			Integer newElement = greateRandomElement(limit);
-			_Log.v("new newElement greated: ", newElement + "");
-			newElement = inspectingDistinction(limit, elements, newElement);
-			_Log.v(" tAỌ newElement hoàn tất ", newElement + "");
-			elements.add(newElement);
+			/*
+			 * Only add the random value that has inspected the distinction from
+			 * other elements in the list.
+			 */
+			elements.add(inspectingDistinction(limit, elements,
+					greateRandomElement(limit)));
 		}
-		_Log.v("element.size() : ", elements.size() + "");
 		return elements;
 	}
 
+	/**
+	 * Using recursion algorithm, we made this to get other elements left in the
+	 * list.
+	 * 
+	 * @param limit
+	 *            The limit of nextInt().
+	 * @param elements
+	 *            The list under construction.
+	 * @param newElement
+	 *            New element we has made.
+	 * @return New element we has made.
+	 */
 	private static Integer inspectingDistinction(int limit,
 			List<Integer> elements, Integer newElement) {
+		/*
+		 * Examine all the elements in the list.
+		 */
 		for (int i = 0; i < elements.size(); i++) {
-			_Log.v(" start the for loop round " + i + " ", i + "");
-			_Log.v(" Đang so sanh elements.get(" + i + ") va " + newElement,
-					elements.get(i) + " VS " + newElement);
+			/*
+			 * If there is any list's element equals the new value, we make a
+			 * new one.
+			 */
 			while (elements.get(i) == newElement) {
-				_Log.v(" Trùng với elements.get(" + i + ") ", elements.get(i)
-						+ " == " + newElement);
 				newElement = inspectingDistinction(limit, elements,
 						greateRandomElement(limit));
-				_Log.v(" tạo newElement mới = ", newElement + "");
 			}
-			_Log.v(" kết thúc loop thứ : " + i + " vòng for", i + "");
 		}
 		return newElement;
 	}
 
+	/**
+	 * Spawns a integer with random value by a given limit.
+	 * 
+	 * @param limit
+	 *            Limit of nextInt().
+	 * @return A random integer.
+	 */
 	private static Integer greateRandomElement(int limit) {
 		return random.nextInt(limit);
 	}

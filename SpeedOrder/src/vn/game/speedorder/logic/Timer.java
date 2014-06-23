@@ -1,5 +1,7 @@
 package vn.game.speedorder.logic;
 
+import vn.game.speedorder.GameActivity;
+import vn.game.speedorder.utils._Log;
 import android.os.CountDownTimer;
 import android.os.Handler;
 
@@ -35,17 +37,19 @@ public class Timer {
 	public void doStart() {
 		destroyTimer();
 		downTimer = new CountDownTimer(countingTime, 1000) {
-
 			@Override
 			public void onTick(long millisUntilFinished) {
 			}
 
 			@Override
 			public void onFinish() {
-				handler.sendEmptyMessage(0);
+				if (!GameActivity.losed) {
+					handler.sendEmptyMessage(0);
+					_Log.i("fail reason", "the cycle time has elapsed out.");
+				}
+				GameActivity.losed = true;
 			}
 		};
-
 		downTimer.start();
 	}
 

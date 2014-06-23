@@ -5,8 +5,8 @@ import java.util.List;
 import vn.game.speedorder.utils._Log;
 
 /**
- * Checking the sorting action of player whether correct or not before
- * re-process another game's round.
+ * Checking the sorting action of player whether correct or not to decide to
+ * re-process another game's cycle.
  * 
  * @author DUC QUYNH
  * 
@@ -14,6 +14,9 @@ import vn.game.speedorder.utils._Log;
 public class ResultChecker {
 	List<Integer> output;
 
+	/**
+	 * Result of the checking.
+	 */
 	private boolean failed = false;
 
 	/**
@@ -39,7 +42,8 @@ public class ResultChecker {
 	 */
 	public ResultChecker(List<Integer> rawElements, List<Integer> play) {
 		failed = false;
-		quickSort(rawElements, 0, rawElements.size() - 1);
+		// quickSort(rawElements, 0, rawElements.size() - 1);
+		selectionSort(rawElements);
 		output = rawElements;
 		/*
 		 * Checking each element of 2 lists at the same position whether matches
@@ -61,6 +65,12 @@ public class ResultChecker {
 		return failed;
 	}
 
+	/**
+	 * Selection sort algorithm.
+	 * 
+	 * @param input
+	 *            Input raw list.
+	 */
 	private void selectionSort(List<Integer> input) {
 		for (int i = 0; i < input.size() - 1; i++) {
 			int minAssuming = i;
@@ -73,6 +83,16 @@ public class ResultChecker {
 		}
 	}
 
+	/**
+	 * Quick sort algorithm.
+	 * 
+	 * @param Input
+	 *            raw list.
+	 * @param l
+	 *            left: The very start index of list.
+	 * @param r
+	 *            right: The very end index of list.
+	 */
 	void quickSort(List<Integer> input, int l, int r) {
 		if (l >= r)
 			return;
@@ -95,12 +115,26 @@ public class ResultChecker {
 		quickSort(input, i, r);
 	}
 
+	/**
+	 * Exchanging position between 2 elements of a list.
+	 * 
+	 * @param input
+	 *            The list.
+	 * @param i
+	 *            Element 1st's position.
+	 * @param j
+	 *            Element 2nd's position.
+	 */
 	private void swap(List<Integer> input, int i, int j) {
 		int temp = input.get(i);
 		input.set(i, input.get(j));
 		input.set(j, temp);
 	}
 
+	/**
+	 * 
+	 * @return The list has arranged correctly.
+	 */
 	public List<Integer> getResult() {
 		return output;
 	}

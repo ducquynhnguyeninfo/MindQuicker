@@ -25,9 +25,18 @@ public class NotificationButton extends RelativeLayout {
 
 	private Button button;
 	private ImageView imgView;
+	/**
+	 * Whether order-tag's resource can be barter or not.
+	 */
 	private boolean orderTagChangable = true;
+	/**
+	 * Mark this {@link NotificationButton} was clicked or not.
+	 */
 	private boolean wasClicked = false;
-	String number;
+	/**
+	 * The number that is showed as a  Button's text.
+	 */
+	private String number;
 	int drawable;
 	int color;
 
@@ -71,17 +80,6 @@ public class NotificationButton extends RelativeLayout {
 		super(context, attrs, defStyle);
 	}
 
-	public NotificationButton setText(String text) {
-		this.button.setText(text);
-		return this;
-	}
-
-	public NotificationButton setOrderTagSource(int imgResId) {
-		if (this.orderTagChangable)
-			this.imgView.setImageResource(imgResId);
-		return this;
-	}
-
 	@Override
 	public void setOnClickListener(OnClickListener l) {
 		button.setOnClickListener(l);
@@ -93,19 +91,65 @@ public class NotificationButton extends RelativeLayout {
 		return super.getId();
 	}
 
+	/**
+	 * Set the order tag's image resource.
+	 * 
+	 * @param imgResId
+	 *            Id of image resource.
+	 * @return
+	 */
+	public NotificationButton setOrderTagSource(int imgResId) {
+		if (this.orderTagChangable)
+			this.imgView.setImageResource(imgResId);
+		return this;
+	}
+
+	/**
+	 * Set text to this {@link NotificationButton}.
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public NotificationButton setText(String text) {
+		this.button.setText(text);
+		return this;
+	}
+
+	/**
+	 * Get text of this {@link NotificationButton}.
+	 * 
+	 * @return
+	 */
 	public CharSequence getText() {
 		return this.button.getText();
 	}
 
+	/**
+	 * To flag that this {@link NotificationButton} can barter the order tag's
+	 * image source or not.
+	 * 
+	 * @param b
+	 * @return
+	 */
 	public NotificationButton setOrderTagChangeable(boolean b) {
 		orderTagChangable = b;
 		return this;
 	}
 
+	/**
+	 * 
+	 * @return This {@link NotificationButton} was clicked or not.
+	 */
 	public boolean wasClicked() {
 		return wasClicked;
 	}
 
+	/**
+	 * Set the flag to mark that this button was clicked or not.
+	 * 
+	 * @param b
+	 * @return
+	 */
 	public NotificationButton setWasClicked(boolean b) {
 		wasClicked = b;
 		return this;
@@ -113,9 +157,8 @@ public class NotificationButton extends RelativeLayout {
 
 	/**
 	 * Reset all states of a {@link NotificationButton} to the default states.
-	 * clicked : false.
-	 * ordering tag changeable : true.
-	 * set the default order tag image resource.
+	 * clicked : false. ordering tag changeable : true. set the default order
+	 * tag image resource.
 	 */
 	public void buttonResetState() {
 		setWasClicked(false).setOrderTagChangeable(true).setOrderTagSource(
