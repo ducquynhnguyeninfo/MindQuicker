@@ -5,6 +5,8 @@ import java.util.List;
 
 import vn.game.speedorder.logic.ResultChecker;
 import vn.game.speedorder.logic.Timer;
+import vn.game.speedorder.models.ElementSupplier;
+import vn.game.speedorder.models.NotificationButton;
 import vn.game.speedorder.utils._Log;
 
 import android.os.Bundle;
@@ -86,7 +88,7 @@ public class GameActivity extends Activity implements OnNotifyChangedListener {
 			if (!butt1.wasClicked()) {
 				_Log.v("button1 id", R.id.button1 + "");
 				butt1.setOrderTagSource(setOrder(countClick))
-						.setOrderTagChangable(false).setWasClicked(true);
+						.setOrderTagChangeable(false).setWasClicked(true);
 			} else {
 				handler.sendEmptyMessage(0);
 			}
@@ -96,7 +98,7 @@ public class GameActivity extends Activity implements OnNotifyChangedListener {
 			if (!butt2.wasClicked()) {
 				_Log.v("button2 id", R.id.button2 + "");
 				butt2.setOrderTagSource(setOrder(countClick))
-						.setOrderTagChangable(false).setWasClicked(true);
+						.setOrderTagChangeable(false).setWasClicked(true);
 			} else {
 				handler.sendEmptyMessage(0);
 			}
@@ -106,7 +108,7 @@ public class GameActivity extends Activity implements OnNotifyChangedListener {
 			if (!butt3.wasClicked()) {
 				_Log.v("button3 id", R.id.button3 + "");
 				butt3.setOrderTagSource(setOrder(countClick))
-						.setOrderTagChangable(false).setWasClicked(true);
+						.setOrderTagChangeable(false).setWasClicked(true);
 			} else {
 				handler.sendEmptyMessage(0);
 			}

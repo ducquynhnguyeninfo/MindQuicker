@@ -1,4 +1,4 @@
-package vn.game.speedorder;
+package vn.game.speedorder.models;
 
 import java.util.ArrayList;
 import java.util.List;

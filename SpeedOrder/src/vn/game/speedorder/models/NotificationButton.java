@@ -1,5 +1,10 @@
-package vn.game.speedorder;
+package vn.game.speedorder.models;
 
+import vn.game.speedorder.R;
+import vn.game.speedorder.R.drawable;
+import vn.game.speedorder.R.id;
+import vn.game.speedorder.R.layout;
+import vn.game.speedorder.R.styleable;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -9,6 +14,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+/**
+ * {@link NotificationButton} is a view that compounded from {@link Button} and
+ * an {@link ImageView}.
+ * 
+ * @author DUC QUYNH
+ * 
+ */
 public class NotificationButton extends RelativeLayout {
 
 	private Button button;
@@ -85,13 +97,12 @@ public class NotificationButton extends RelativeLayout {
 		return this.button.getText();
 	}
 
-	public NotificationButton setOrderTagChangable(boolean b) {
+	public NotificationButton setOrderTagChangeable(boolean b) {
 		orderTagChangable = b;
 		return this;
 	}
 
 	public boolean wasClicked() {
-
 		return wasClicked;
 	}
 
@@ -100,8 +111,14 @@ public class NotificationButton extends RelativeLayout {
 		return this;
 	}
 
+	/**
+	 * Reset all states of a {@link NotificationButton} to the default states.
+	 * clicked : false.
+	 * ordering tag changeable : true.
+	 * set the default order tag image resource.
+	 */
 	public void buttonResetState() {
-		setWasClicked(false).setOrderTagChangable(true).setOrderTagSource(
+		setWasClicked(false).setOrderTagChangeable(true).setOrderTagSource(
 				R.drawable.empty_bg);
 	}
 }

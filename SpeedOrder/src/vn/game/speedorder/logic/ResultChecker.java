@@ -4,31 +4,63 @@ import java.util.List;
 
 import vn.game.speedorder.utils._Log;
 
+/**
+ * Checking the sorting action of player whether correct or not before
+ * re-process another game's round.
+ * 
+ * @author DUC QUYNH
+ * 
+ */
 public class ResultChecker {
 	List<Integer> output;
 
 	private boolean failed = false;
 
+	/**
+	 * Constructor, we can choose the sorting way here.
+	 * 
+	 * @param input
+	 *            The raw list of numbers unarranged yet.
+	 */
 	public ResultChecker(List<Integer> input) {
 		// selectionSort(input);
 		quickSort(input, 0, input.size() - 1);
 		output = input;
 	}
 
-	public ResultChecker(List<Integer> elements, List<Integer> play) {
+	/**
+	 * We process the arranging and then compare this result to the list that
+	 * player has arranged to pick the answer true or false.
+	 * 
+	 * @param rawElements
+	 *            The raw list of numbers un-arranged yet.
+	 * @param play
+	 *            The list that is the result player has arranged.
+	 */
+	public ResultChecker(List<Integer> rawElements, List<Integer> play) {
 		failed = false;
-		quickSort(elements, 0, elements.size() - 1);
-		output = elements;
-		for (int i = 0; i < elements.size(); i++) {
-			_Log.v(elements.get(i) + "", play.get(i) + "");
-			if (elements.get(i) != play.get(i))
-				failed = true;
+		quickSort(rawElements, 0, rawElements.size() - 1);
+		output = rawElements;
+		/*
+		 * Checking each element of 2 lists at the same position whether matches
+		 * or doesn't.
+		 */
+		for (int i = 0; i < rawElements.size(); i++) {
+			_Log.v(rawElements.get(i) + "", play.get(i) + "");
+			if (rawElements.get(i) != play.get(i)) // If there is any of
+													// elements doesn't match at
+													// the same position in 2
+													// list
+				failed = true;// we set true to failed to indicate that 2 lists
+								// aren't
+								// match each other.
 		}
 	}
 
 	public boolean isFailed() {
 		return failed;
 	}
+
 	private void selectionSort(List<Integer> input) {
 		for (int i = 0; i < input.size() - 1; i++) {
 			int minAssuming = i;

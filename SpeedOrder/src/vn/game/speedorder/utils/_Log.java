@@ -2,6 +2,11 @@ package vn.game.speedorder.utils;
 
 import android.util.Log;
 
+/**
+ * see {@android.util.Log}
+ * @author DUC QUYNH
+ *
+ */
 public class _Log {
 	public static final String TAG_WARNING = "log_warning";
 	public static final String TAG_VERBOSE = "log_verborse";
@@ -11,6 +16,11 @@ public class _Log {
 
 	static boolean isLog = true;
 
+	/**
+	 * Send an INFO log message.
+	 * @param where
+	 * @param text
+	 */
 	public static void i(String where, String text) {
 		if (isLog)
 			Log.i(where, text);
